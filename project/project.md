@@ -25,5 +25,10 @@ Cryptocurrency dataset[<sup>[4]</sup>](https://www.kaggle.com/sudalairajkumar/cr
 
 
 ## References
-[^1]: Szmigiera, M. “Cryptocurrency Market Value 2013-2019.” Statista, 20 Jan. 2020, <https//www.statista.com/statistics/730876/cryptocurrency-maket-value/>. 
+[1]: Szmigiera, M. “Cryptocurrency Market Value 2013-2019.” Statista, 20 Jan. 2020, https//www.statista.com/statistics/730876/cryptocurrency-maket-value/. 
 
+[2]: Lansky, Jan. “Possible State Approaches to Cryptocurrencies.” Journal of Systems Integration, University of Finance and Administration in Prague Czech Republic, www.si-journal.org/index.php/JSI/article/view/335. 
+
+[3]: 
+[4]:
+[5]:
