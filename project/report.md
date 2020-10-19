@@ -1,1 +1,1 @@
-# Cryptocurrency - Relationship with Foriegn Exchange and Global Stock Market Indices Analysis
+# Cryptocurrency Relationship Analysis - Foriegn Exchange Rates and Global Stock Market Indices
