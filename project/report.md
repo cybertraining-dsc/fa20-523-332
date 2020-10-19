@@ -1,4 +1,4 @@
-# Cryptocurrency Relationship Analysis - Foriegn Exchange Rates and Global Stock Market Indices
+# Analyzing the Relationship of Cryptocurrencies with Foriegn Exchange Rates and Global Stock Market Indices
 
 ## Abstract
 The project involves analyzing the relationships of various cryptocurrencies with Foreign Exchange Rates and Stock Market Indices. Apart from analyzing the relationships, the objective of the project is also to estimate the trend of the cryptocurrencies based on Foreign Exchange Rates and Stock Market Indices. We will be using historic data of 17 different cryptocurrencies, 21 Stock Market Indices and 22 Foreign Exchange Rates for this project. 
