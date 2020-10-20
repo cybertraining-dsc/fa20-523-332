@@ -1,4 +1,7 @@
 # Analyzing the Relationship of Cryptocurrencies with Foriegn Exchange Rates and Global Stock Market Indices
+
+- [ ] please use proper markdown footnotes you must not use sup
+
 Krish Hemant Mhatre
 
 [fa20-523-332](https://github.com/cybertraining-dsc/fa20-523-332/), [Edit](https://github.com/cybertraining-dsc/fa20-523-332/blob/master/project/project.md)
