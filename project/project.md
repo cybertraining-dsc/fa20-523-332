@@ -26,12 +26,33 @@ Contents
 
 One of the latest global medium of exchange is Cryptocurrency. The total market capitalizations of all cryptocurrencies added up to $237.1 Billion as of 2019[^1]. Cryptocurrency systems do not require a central authority, its state is maintained through distributed consensus[^2]. Therefore, determine the factors affecting the prices of cryptocurrencies becomes difficult. There are many factors affecting cryptocurrency like transaction cost, reward system, hash rate, coins circulation, forks, popularity of cryptomarket, speculations, stock markets, exchange rates, gold price, interest rate, legalization and restriction[^3]. This project involves analysis of relationships of various cryptocurrencies with Foreign Exchange Rates and Stock Market Indices.
 
-## 2. Dataset
+## 2. Background
+
+TBD
+
+## 3. Dataset
 
 The project will use the historic data of Stock Market Indices - NASDAQ 100, S&P 500, Dow Jones, DAX, BEL 20, AEX, S&P/TSX 60, IGPA, Merval 25, SMI, IBEX 35, FTSE Italia A, CAC 40, EURO STOXX 50, FTSE 100, RTS, Shanghai Comp, NIKKEI 225, Hang Seng, S&P ASX 20 and Foreign Exhange Rates with USD of currencies - Australian Dollar, Euro, New Zealand Dollar, British Pound, Brazilian Real, Canadian Dollar, Chinese Yuan, Hong Kong Dollar, Indian Rupee, Korean Won, Mexican Peso, South African Rand, Singapore Dollar, Danish Krone, Japanese Yen, Malaysian Ringgit, Norwegian Krone, Swedish Krona, Sri Lankan Rupee, Swiss Franc, New Taiwan Dollar and Thai Baht. This data will be used to analyze its relationships with various cryptocurrencies - Bitcoin, Bitcoin Cash, Bitconnect, Dash, Ethereum, Ethereum Classic, Iota, Litecoin, Monero, Nem, Neo, Numeraire, Omisego, Qtum, Ripple, Stratis and Waves.
 
-Cryptocurrency dataset [^4] and Foriegn Exchange Rate dataset[^5], both, available on Kaggle will be used for this project. The historic data for various stock market indices will be taken from multiple sources and are still to be decided. 
+Cryptocurrency dataset [^4] and Foriegn Exchange Rate dataset[^5], both, available on Kaggle will be used for this project. The historic data for various stock market indices will be taken from multiple sources and are still to be decided. All the datasets will be updated daily using a web app on Heroku.
 
+## 4. Data Storage
+
+The project stores all of its data in NoSQL databases using MongoDB. There are total 3 databases used in the project - crypto, forex and stock. Crypto database contains 17 collections whereas forex database contains only 1 collection. The third database - stock - is yet to be built. 
+
+## 5. Methodology
+
+The project uses all of its historic data to train a machine learning model for each cryptocurrency. In order to predict/estimate, all the models will use the opening rates of the selected cryptocurrency and related stock indices and foreign exchange. The models will be able to predict the closing rate for that day for the respective cryptocurrency.
+
+To be updated with details.
+
+## 6. Conclusion
+
+TBD
+
+## Plan
+Nov 3 - Nov 7: Building final dataset and development of web-app to update the database daily.
+Nov 8 - Nov 15: Development of Machine Learning Models.
 
 ## References
 
