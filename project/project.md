@@ -56,13 +56,13 @@ Nov 8 - Nov 15: Development of Machine Learning Models.
 
 ## References
 
-[^1]: Szmigiera, M. “Cryptocurrency Market Value 2013-2019.” Statista, 20 Jan. 2020, https://www.statista.com/statistics/730876/cryptocurrency-maket-value/. 
+[^1]: Szmigiera, M. "Cryptocurrency Market Value 2013-2019." Statista, 20 Jan. 2020, <https://www.statista.com/statistics/730876/cryptocurrency-maket-value/>. 
 
-[^2]: Lansky, Jan. “Possible State Approaches to Cryptocurrencies.” Journal of Systems Integration, University of Finance and Administration in Prague Czech Republic, http://www.si-journal.org/index.php/JSI/article/view/335. 
+[^2]: Lansky, Jan. "Possible State Approaches to Cryptocurrencies." Journal of Systems Integration, University of Finance and Administration in Prague Czech Republic, <http://www.si-journal.org/index.php/JSI/article/view/335>. 
 
-[^3]: Sovbetov, Yhlas. “Factors Influencing Cryptocurrency Prices: Evidence from Bitcoin, Ethereum, Dash, Litcoin, and Monero.” Journal of Economics and Financial Analysis, London School of Commerce, 26 Feb. 2018, https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3125347. 
+[^3]: Sovbetov, Yhlas. "Factors Influencing Cryptocurrency Prices: Evidence from Bitcoin, Ethereum, Dash, Litcoin, and Monero. " Journal of Economics and Financial Analysis, London School of Commerce, 26 Feb. 2018, <https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3125347>. 
 
-[^4]: “Cryptocurrency Historical Prices.” Kaggle, 21 Feb. 2018, https://www.kaggle.com/sudalairajkumar/cryptocurrencypricehistory?select=bitconnect_price.csv. 
+[^4]: "Cryptocurrency Historical Prices." Kaggle, 21 Feb. 2018, <https://www.kaggle.com/sudalairajkumar/cryptocurrencypricehistory?select=bitconnect_price.csv>. 
 
-[^5]: “Foreign Exchange Rates 2000-2019.” Kaggle, 3 Mar. 2020, https://www.kaggle.com/brunotly/foreign-exchange-rates-per-dollar-20002019. 
+[^5]: "Foreign Exchange Rates 2000-2019." Kaggle, 3 Mar. 2020, <https://www.kaggle.com/brunotly/foreign-exchange-rates-per-dollar-20002019>. 
 
