@@ -4,7 +4,7 @@
 
 Krish Hemant Mhatre
 
-[fa20-523-332](https://github.com/cybertraining-dsc/fa20-523-332/), [Edit](https://github.com/cybertraining-dsc/fa20-523-332/blob/master/project/project.md)
+[fa20-523-332](https://github.com/cybertraining-dsc/fa20-523-332/), [Edit](https://github.com/cybertraining-dsc/fa20-523-332/blob/main/project/project.md)
 
 <krishmhatre@icloud.com>
 
