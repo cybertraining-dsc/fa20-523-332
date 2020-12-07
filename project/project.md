@@ -2,7 +2,7 @@
 
 [![Check Report](https://github.com/cybertraining-dsc/fa20-523-332/workflows/Check%20Report/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-332/actions)
 [![Status](https://github.com/cybertraining-dsc/fa20-523-332/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-332/actions)
-Status: in progress
+Status: in progress, Type: Project
 
 Krish Hemant Mhatre
 
