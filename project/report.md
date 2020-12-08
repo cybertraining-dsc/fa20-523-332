@@ -42,6 +42,16 @@ The latest type of investment in the finance world and one of the latest global 
 | 7. | Scikit-Learn|0.22.2|Python Library|Scikit-learn is an open-source machine learning library featuring various algorithms for classification, regression and clustering problems.|
 | 8. |Numpy|1.16.0|Python Library|Numpy is a python library used for handling and performing various operations on large multi-dimensional arrays.|
 | 9. |Scipy|1.5.4|Python Library|Scipy is a python library used for scientific and technical computing. It is not directly used in the project but serves as a dependency for tensorflow.|
+| 10.|Pandas|1.1.4|Python Library|Pandas is a python library used mainly for large scale data manipulation and analysis. |
+|11.|Matplotlib|3.2.2|Python Library|Matplotlib is a python library used for graphing and plotting. |
+|12.|Pickle|1.0.2|Python Library|Pickle-mixin is a python library used for saving and loading python variables.|
+|13.|Pymongo|3.11.2|Python Library|Pymongo is a python library containing tools for working with MongoDB.|
+|14.|Flask|1.1.2|Python Library|Flask is a micro web framework for python. It is used in the project for creating the API.|
+|15.|Datetime|4.3|Python Library|Datetime is a python library used for handling dates as date objects.|
+|16.|Pytz|2020.4|Python Library|Pytz is a python library used for accurate timezone calculations.|
+|17|Yahoo Financials|1.6|Python Library|Yahoo Financials is an unofficial python library used for extracting data from Yahoo Finance website by web scraping.|
+|18|Dns Python|2.0.0|Python Library|DNS python is a necessary dependency of Pymongo.|
+
 
 
 ## 3. Dataset
