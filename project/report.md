@@ -140,11 +140,12 @@ The database is supposed to be updated daily using a web-app deployed on Heroku.
 6.2 REST Service
 The data from the MongoDB databases can be accessed using a public RESTful API. The API is developed using Flask-Python. The API usage is given below.
 
-URL - <https://crypto-project-api.herokuapp.com/>
+URL - ```<https://crypto-project-api.herokuapp.com/>```
 
+----
 ***/get_data/single/market/index/date***
 
-Type - GET
+*Type - GET*
 
 Sample Request - 
 
@@ -168,9 +169,11 @@ Sample Respose -
 }
 ```
 
+----
+
 ***/get_data/multiple/market/index/start_date/end_date***
 
-Type - GET
+*Type - GET*
 
 Sample Request - 
 
@@ -207,10 +210,11 @@ Sample Respose -
   "status":"Success"
 }
 ```
+----
 
 ***/get_predictions/date***
 
-Type - GET
+*Type - GET*
 
 Sample Request - 
 
@@ -236,6 +240,7 @@ Sample Respose -
 }
 ```
 
+----
 ## 7. Conclusion
 
 After analyzing the historical data of Stock Market Indices, Foreign Exchange Rates and Cryptocurrency Prices, it can be concluded that there does exist a non-linear relationship between the three. It can also be concluded that cryptocurrency prices can be predicted and its trend can be estimated using Stock Indices and Forex Rates. There is still a large scope of improvement in reducing the mean squared error. The project can further improve the neural network model for better predictions. In the end, it is safe to conclude that the indicators of international politics like Stock Market Indices and Forex Exchange Rates are factors affecting the prices of cryptocurrency. 
