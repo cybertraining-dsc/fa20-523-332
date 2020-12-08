@@ -30,7 +30,7 @@ The latest type of investment in the finance world and one of the latest global 
 
 ## 2. Resources
 
-**Table 1:** Resources
+**Table 2.1:** Resources
 | **No.** | **Name** | **Version** | **Type** |     **Notes**     |
 | :---  |    :----:    |    :----:    |    :----:    |  ---:  |
 | 1. |  Python  | 3.6.9 | Programming language  |Python is a high-level interpreted programming language. |
@@ -56,13 +56,34 @@ The latest type of investment in the finance world and one of the latest global 
 
 ## 3. Dataset
 
-The project will use the historic data of Stock Market Indices - NASDAQ 100, S&P 500, Dow Jones, DAX, BEL 20, AEX, `S&P/TSX 60`, IGPA, Merval 25, SMI, IBEX 35, FTSE Italia A, CAC 40, EURO STOXX 50, FTSE 100, RTS, Shanghai Comp, NIKKEI 225, Hang Seng, S&P ASX 20 and Foreign Exhange Rates with USD of currencies - Australian Dollar, Euro, New Zealand Dollar, British Pound, Brazilian Real, Canadian Dollar, Chinese Yuan, Hong Kong Dollar, Indian Rupee, Korean Won, Mexican Peso, South African Rand, Singapore Dollar, Danish Krone, Japanese Yen, Malaysian Ringgit, Norwegian Krone, Swedish Krona, Sri Lankan Rupee, Swiss Franc, New Taiwan Dollar and Thai Baht. This data will be used to analyze its relationships with various cryptocurrencies - Bitcoin, Bitcoin Cash, Bitconnect, Dash, Ethereum, Ethereum Classic, Iota, Litecoin, Monero, Nem, Neo, Numeraire, Omisego, Qtum, Ripple, Stratis and Waves.
+The project builds its own dataset by extracting the data from Yahoo Finance website using Yahoo Financial python library [^4]. The data includes cryptocurrency prices, stock market indices and foreign exchange rates from September 30 2015 to December 5 2020. The project uses historical data of 6 cryptocurrencies - Bitcoin (BTC), Ethereum (ETH), Dash (DASH), Litecoin (LTC), Monero (XMR) and Ripple (XRP), 25 stock market indices - S&P 500 (USA), Dow 30 (USA), NASDAQ (USA), Russell 2000 (USA), S&P/TSX (Canada), IBOVESPA (Brazil), IPC MEXICO (Mexico), Nikkei 225 (Japan), HANG SENG INDEX (Hong Kong), SSE (China), Shenzhen Component (China), TSEC (Taiwan), KOSPI (South Korea), STI (Singapore), Jakarta Composite Index (Indonesia), FTSE Bursa Malaysia KLCI (Malaysia), S&P/ASX 200 (Australia), S&P/NZX 50 (New Zealand), S&P BSE (India), FTSE 100 (UK), DAX (Germany), CAC 40 (France), ESTX 50 (Europe), EURONEXT 100 (Europe), BEL 20 (Belgium), and 22 foreign exchange rates - Australian Dollar, Euro, New Zealand Dollar, British Pound, Brazilian Real, Canadian Dollar, Chinese Yuan, Hong Kong Dollar, Indian Rupee, Korean Won, Mexican Peso, South African Rand, Singapore Dollar, Danish Krone, Japanese Yen, Malaysian Ringgit, Norwegian Krone, Swedish Krona, Sri Lankan Rupee, Swiss Franc, New Taiwan Dollar, Thai Baht. This data is, then, posted to MongoDB Database. The three databases are created for each of the data types - Cryptocurrency prices, Stock Market Indices and Foreign Exchange Rates. The three databases each contain one collection for every currency, index and rate respectively. These collections have a uniform structure containing 6 columns - “id”, “formatted_date”, “low”, “high”, “open” and “close”. The tickers used to extract data from Yahoo Finance [^4] are stated in Figure .
 
-Cryptocurrency dataset [^4] and Foriegn Exchange Rate dataset[^5], both, available on Kaggle will be used for this project. The historic data for various stock market indices will be taken from multiple sources and are still to be decided. All the datasets will be updated daily using a web app on Heroku.
+**Figure 3.1:** Ticker Information 
 
-## 4. Data Storage
+The data is, then, preprocessed to get only one column per date (“close” price) and to add missing information by replicating previous day’s values, which is used to make a large dataset including the prices of all indices and rates for all the dates within the given range. This data is saved in a different MongoDB Database and collection, both, called nn_data. This collection has 54 columns containing closing prices for each cryptocurrency price, stock market index and foreign exchange rate and the date. The rows represent different dates. 
 
-The project stores all of its data in NoSQL databases using MongoDB. There are total 3 databases used in the project - crypto, forex and stock. Crypto database contains 17 collections whereas forex database contains only 1 collection. The third database - stock - is yet to be built. 
+One additional database is also created - Predictions - which contain the predictions of cryptocurrency prices for each day and it’s true value. The collection has 13 columns containing a date column and 2 columns for each cryptocurrency (prediction value and true value). New rows are inserted everyday for all collections except the “nn_data” collection. Figure ## represents the overview of the MongoDB Cluster. Figure ## shows the structure of the nn_data collection.
+
+**Figure 3.2:** MongoDB Cluster Overview
+
+**Figure 3.3:** Short Structure of NN_data Collection
+
+## 4. Analysis
+
+### 4.1 Principal Component Analysis
+Principal Component Analysis uses Singular Value Decomposition (SVD) for dimensionality reduction, exploratory data analysis and making predictive models. PCA helps understand a linear relationship in the data [^5]. In this project, PCA is used for the preliminary analysis to find a pattern between the target and the features. Here we have tried to make some observations by performing PCA on various cryptocurrencies with stocks and forex data. In this analysis, we reduced the dimension of the dataset to 3D, represented in Figure ##. The first and second dimension is on x-axis and y-axis respectively whereas the third dimension is used in the color. On observing the scatter plots in Figure ##, we can clearly see the patterns formed by various relationships. Therefore, it can be stated that the target and features are related in some way based on the principal component analysis. 
+
+**Figure 4.1:** Principal Component Analysis
+
+### 4.2 TSNE Analysis
+T-Distributed Stochastic Neighbour Embedding is mainly used for non-linear dimensionality reduction. TSNE uses local relationships between points to create a low-dimensional mapping. TSNE uses Gaussian distribution to  create a probability distribution. In this project, TSNE is used to analyze non-linear relationships between cryptocurrencies and the features (stock indices and forex rates), which were not visible in the principal component analysis. It can be observed in Figure ##, that there are visible patterns in the data i.e. same colored data points are in some pattern, proving a non linear relationship. The t-SNE plots in Figure ## are not like the typical t-SNE plots i.e. they do not have any clusters. This might be because of the size of the dataset. 
+
+**Figure 4.2:** t-SNE Analysis
+
+### 4.3 Weighted Features Analysis
+Layers of neural networks have weights assigned to each feature column. These weights are updated continuously while training. Analyzing the weights of the model which is trained for this project, can give us a picture of the important features. To perform such an analysis, the top five feature weights are noted for each layer. The number of times a feature is present in the top five of a layer, is also noted. This is represented in Figure ##, where we can observe that the New Zealand Dollar and the Canadian Dollar are repeated most number of times in the top five weights of layers. 
+
+**Figure 4.3:** No. of repetitions in top five weights
 
 ## 5. Methodology
 
