@@ -133,7 +133,7 @@ The overview of the final model can be seen in Figure 5.2. The predictions using
 
 **Figure 5.2:** Model Overview
 
-![Visualization of Initial Weights](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/initialize.png)
+![Visualization of Initial Weights](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/intialize.png)
 
 **Figure 5.3:** Visualization of Initial Weights
 
