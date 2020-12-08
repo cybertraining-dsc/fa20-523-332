@@ -9,7 +9,7 @@ URL - ```<https://crypto-project-api.herokuapp.com/>```
 
 Sample Request - 
 
-```<https://crypto-project-api.herokuapp.com/get_data/single/crypto/bitcoin/2020-12-05>```
+```https://crypto-project-api.herokuapp.com/get_data/single/crypto/bitcoin/2020-12-05```
 
 Sample Respose - 
 
