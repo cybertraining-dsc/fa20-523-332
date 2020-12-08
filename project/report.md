@@ -33,32 +33,12 @@ The latest type of investment in the finance world and one of the latest global 
 **Table 1:** Resources
 | **No.** | **Name** | **Version** | **Type** |     **Notes**     |
 | :---  |    :----:    |    :----:    |    :----:    |  ---:  |
-| 1. |  Python  | 3.6.9 | Programming language  |Python is a high-level interpreted programming language.|
-2|
-MongoDB|
-4.4.2|
-Database|
-MongoDB is a NoSQL Database program that uses JSON-like documents.|
-3|
-Heroku|
-0.1.4|
-Cloud Platform|
-Heroku is a cloud platform used for deploying applications. It uses a Git server to handle application repositories. |
-4|
-Gunicorn|
-20.0.4|
-Server Gateway Interface|
-Gunicorn is a python web server gateway interface . It is mainly used in the project for running python applications on Heroku.|
-5|
-Tensorflow|
-2.3.1|
-Python Library|
-Tensorflow is an open-source machine learning library. It is mainly used in the project for training models and predicting results.|
-6|
-Keras
-2.4.3
-Python Library
-Keras is an open-source python library used for interfacing with artificial neural networks. It is an interface for the Tensorflow library.
+| 1. |  Python  | 3.6.9 | Programming language  |Python is a high-level interpreted programming language. |
+| 2. |  MongoDB |  4.4.2 |  Database  | MongoDB is a NoSQL Database program that uses JSON-like documents.  | 
+| 3. |  Heroku  | 0.1.4 |  Cloud Platform| Heroku is a cloud platform used for deploying applications. It uses a Git server to handle application repositories. |
+| 4. |  Gunicorn  | 20.0.4  | Server Gateway Interface  | Gunicorn is a python web server gateway interface . It is mainly used in the project for running python applications on Heroku. |
+| 5. |  Tensorflow  | 2.3.1 |  Python Library|  Tensorflow is an open-source machine learning library. It is mainly used in the project for training models and predicting results.|
+| 6. |  Keras | 2.4.3|Python Library|Keras is an open-source python library used for interfacing with artificial neural networks. It is an interface for the Tensorflow library.
 7
 Scikit-Learn
 0.22.2
