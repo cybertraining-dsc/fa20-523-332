@@ -33,6 +33,17 @@ The latest type of investment in the finance world and one of the latest global 
 **Table 1:** Resources
 | **No.** | **Name** | **Version** | **Type** |     **Notes**     |
 | :---  |    :----:    |    :----:    |    :----:    |  ---:  |
+| 1. |
+| 1. |
+| 1. |
+| 1. |
+| 1. |
+| 1. |
+| 1. |
+| 1. |
+| 1. |
+| 1. |
+| 1. |
 
 ## 3. Dataset
 
