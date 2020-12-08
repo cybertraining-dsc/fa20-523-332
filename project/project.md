@@ -17,10 +17,12 @@ Status: in progress, Type: Project
 The project involves analyzing the relationships of various cryptocurrencies with Foreign Exchange Rates and Stock Market Indices. Apart from analyzing the relationships, the objective of the project is also to estimate the trend of the cryptocurrencies based on Foreign Exchange Rates and Stock Market Indices. We will be using historical data of 6 different cryptocurrencies, 25 Stock Market Indices and 22 Foreign Exchange Rates for this project. The project will use various machine learning tools for analysis. The project also uses a fully connected deep neural network for prediction and estimation. Apart from analysis and prediction of prices of cryptocurrencies, the project also involves building its own database and giving access to the database using a prototype API. The historical data and recent predictions can be accessed through the public API. 
 
 Contents
+
 {{< table_of_contents >}}
+
 {{% /pageinfo %}}
 
-Keywords: cryptocurrency, stocks, foreign exchange rates
+**Keywords:** cryptocurrency, stocks, foreign exchange rates.
 
 
 ## 1. Introduction
@@ -66,7 +68,11 @@ The data is, then, preprocessed to get only one column per date ("close" price) 
 
 One additional database is also created - Predictions - which contain the predictions of cryptocurrency prices for each day and it's true value. The collection has 13 columns containing a date column and 2 columns for each cryptocurrency (prediction value and true value). New rows are inserted everyday for all collections except the "nn_data" collection. Figure 3.2 represents the overview of the MongoDB Cluster. Figure 3.3 shows the structure of the nn_data collection.
 
+![MongoDB Cluster Overview](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/mongodb.png)
+
 **Figure 3.2:** MongoDB Cluster Overview
+
+![Short Structure of NN_data Collection](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/sample_data.png)
 
 **Figure 3.3:** Short Structure of NN_data Collection
 
@@ -77,11 +83,15 @@ One additional database is also created - Predictions - which contain the predic
 
 Principal Component Analysis uses Singular Value Decomposition (SVD) for dimensionality reduction, exploratory data analysis and making predictive models. PCA helps understand a linear relationship in the data[^5]. In this project, PCA is used for the preliminary analysis to find a pattern between the target and the features. Here we have tried to make some observations by performing PCA on various cryptocurrencies with stocks and forex data. In this analysis, we reduced the dimension of the dataset to 3D, represented in Figure 4.1. The first and second dimension is on x-axis and y-axis respectively whereas the third dimension is used in the color. On observing the scatter plots in Figure 4.1, we can clearly see the patterns formed by various relationships. Therefore, it can be stated that the target and features are related in some way based on the principal component analysis. 
 
+![Principal Component Analysis](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/pca.png)
+
 **Figure 4.1:** Principal Component Analysis
 
 ### 4.2 TSNE Analysis
 
 T-Distributed Stochastic Neighbour Embedding is mainly used for non-linear dimensionality reduction. TSNE uses local relationships between points to create a low-dimensional mapping. TSNE uses Gaussian distribution to  create a probability distribution. In this project, TSNE is used to analyze non-linear relationships between cryptocurrencies and the features (stock indices and forex rates), which were not visible in the principal component analysis. It can be observed in Figure 4.2, that there are visible patterns in the data i.e. same colored data points are in some pattern, proving a non linear relationship. The t-SNE plots in Figure 4.2 are not like the typical t-SNE plots i.e. they do not have any clusters. This might be because of the size of the dataset. 
+
+![t-SNE Analysis](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/tsne.png)
 
 **Figure 4.2:** t-SNE Analysis
 
@@ -89,11 +99,17 @@ T-Distributed Stochastic Neighbour Embedding is mainly used for non-linear dimen
 
 Layers of neural networks have weights assigned to each feature column. These weights are updated continuously while training. Analyzing the weights of the model which is trained for this project, can give us a picture of the important features. To perform such an analysis, the top five feature weights are noted for each layer. The number of times a feature is present in the top five of a layer, is also noted. This is represented in Figure 4.3, where we can observe that the New Zealand Dollar and the Canadian Dollar are repeated most number of times in the top five weights of layers. 
 
+![No. of repetitions in top five weights](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/TOP_WEIGTHS.png)
+
 **Figure 4.3:** No. of repetitions in top five weights
 
 The relationships of these two features - New Zealand Dollar and Canadian Dollar with various cryptocurrencies are, then, analyzed in Figure 4.4 and Figure 4.5. It can be observed that Bitcoin has a direct relationship with these rates. Bitcoin can be observed to increase with an increase in NZD to USD rate and an increase in CAD to USD rate. For the rest of the cryptocurrencies, we can observe that they tend to rise when the NZD to USD rate and the CAD to USD rate are stable and tend to fall when the rates move towards either of the extremes. 
 
+![Relationship of NZD with Cryptocurrencies](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/nz_vs_crypto.png)
+
 **Figure 4.4:** Relationship of NZD with Cryptocurrencies
+
+![Relationship of CAD with Cryptocurrencies](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/cad_vs_crypto.png)
 
 **Figure 4.5:** Relationship of CAD with Cryptocurrencies
 
@@ -113,7 +129,11 @@ The final model comprises three layers - one input layer, one hidden layer and o
 
 The overview of the final model can be seen in Figure 5.2. The predictions using the un-trained model can be seen in Figure 5.3, where we can observe the initialization of weights. 
 
+![Model Overview](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/model.png)
+
 **Figure 5.2:** Model Overview
+
+![Visualization of Initial Weights](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/initialize.png)
 
 **Figure 5.3:** Visualization of Initial Weights
 
@@ -123,11 +143,17 @@ The neural network model is compiled before training. The model is compiled usin
 
 The model is, then, trained by using X_train and y_train, as mentioned above, for 5000 epochs and by splitting the dataset for validation (20% for validation). The performance of the training of the final model for first 2500 epochs can be observed in Figure 5.4.
 
+![Final Model Training](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/dnn_with_normal_init.png)
+
 **Figure 5.4:** Final Model Training
 
 This particular model was chosen because of its low validation mean squared error as compared to the performance of other models. Figure 5.5 represents the performance of a similar fully connected model with Random Normal as its initializer instead of He Normal. Figure 5.6 represents the performance of a Convolutional Neural Network. This model was trained with a much lower mean squared error but had a higher validation mean squared error and was therefore dropped. 
 
+![Performance of Fully Connected with Random Normal](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/dnn_with_random_normal_init.png)
+
 **Figure 5.5:** Performance of Fully Connected with Random Normal
+
+![Performance of Convolutional Neural Network](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/cnn.png)
 
 **Figure 5.6:** Performance of Convolutional Neural Network
 
@@ -136,9 +162,15 @@ This particular model was chosen because of its low validation mean squared erro
 
 After training, the model is stored in a .h5 file, which can be used to make predictions. For making predictions, the project preprocesses the data provided which needs to be of the input dimension of the model i.e. of shape (1, 47). Both the scalers which were saved earlier in the preprocessing stage are loaded again using pickle-mixin. The feature scaler is used to transform the new data to normalized data. This normalized data of the given dimension is then used to predict the prices for six cryptocurrencies. Since regression models do not show accuracy directly, it can be measured manually by rounding off the predicted values and the corresponding true values to the decimal place of one or two and then getting the difference between the two and comparing it to a preset threshold. If the values are rounded off to one decimal place and the threshold is set to 0.05 on the normalized predictions, the accuracy of the prediction is approximately 88% and if the values are rounded off to two decimal places, the accuracy is approximately 62%. The predictions of the test data and the corresponding true values for Bitcoin can be observed in Figure 5.7, where similarities can be observed. Prediction for a new date for the prices of all six cryptocurrencies and its true values can be observed in Figure 5.8. Figure 5.9 also displays the actual result of this project as it can be observed that the predictions and the true values have similar trend with a low margin of error.
 
+![Prediction vs. True](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/prediction.png)
+
 **Figure 5.7:** Prediction vs. True
 
+![Prediction vs. True for one day’s test data](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/pred.png)
+
 **Figure 5.8:** Prediction vs. True for one day’s test data
+
+![Prediction vs. True for all cryptocurrencies](https://github.com/cybertraining-dsc/fa20-523-332/raw/main/project/images/pred_vs_true.png)
 
 **Figure 5.9:** Prediction vs. True for all cryptocurrencies
 
