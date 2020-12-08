@@ -33,6 +33,7 @@ The latest type of investment in the finance world and one of the latest global 
 ## 2. Resources
 
 **Table 2.1:** Resources
+
 | **No.** | **Name** | **Version** | **Type** |     **Notes**     |
 | :---  |    :----:    |    :----:    |    :----:    |  ---:  |
 | 1. |  Python  | 3.6.9 | Programming language  |Python is a high-level interpreted programming language. |
