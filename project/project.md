@@ -186,7 +186,7 @@ The database is supposed to be updated daily using a web-app deployed on Heroku.
 
 The data from the MongoDB databases can be accessed using a public RESTful API. The API is developed using Flask-Python. The API usage is given below.
 
-URL - ```<https://crypto-project-api.herokuapp.com/>```
+URL - ```https://crypto-project-api.herokuapp.com/```
 
 ----
 ***/get_data/single/market/index/date***
@@ -195,7 +195,7 @@ URL - ```<https://crypto-project-api.herokuapp.com/>```
 
 Sample Request - 
 
-```<https://crypto-project-api.herokuapp.com/get_data/single/crypto/bitcoin/2020-12-05>```
+```https://crypto-project-api.herokuapp.com/get_data/single/crypto/bitcoin/2020-12-05```
 
 Sample Respose - 
 
