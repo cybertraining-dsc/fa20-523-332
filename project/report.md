@@ -4,33 +4,35 @@
 [![Status](https://github.com/cybertraining-dsc/fa20-523-332/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-332/actions)
 Status: in progress, Type: Project
 
-Krish Hemant Mhatre
+* Krish Hemant Mhatre
 
-[fa20-523-332](https://github.com/cybertraining-dsc/fa20-523-332/), [Edit](https://github.com/cybertraining-dsc/fa20-523-332/blob/main/project/project.md)
-
-<krishmhatre@icloud.com>
+* [fa20-523-332](https://github.com/cybertraining-dsc/fa20-523-332/)
+* [Edit](https://github.com/cybertraining-dsc/fa20-523-332/blob/main/project/project.md)
+* <krishmhatre@icloud.com>
 
 {{% pageinfo %}}
 
 ## Abstract
 
-The project involves analyzing the relationships of various cryptocurrencies with Foreign Exchange Rates and Stock Market Indices. Apart from analyzing the relationships, the objective of the project is also to estimate the trend of the cryptocurrencies based on Foreign Exchange Rates and Stock Market Indices. We will be using historic data of 17 different cryptocurrencies, 21 Stock Market Indices and 22 Foreign Exchange Rates for this project. The project will use various Machine Learning models for analysis and prediction. The project might also use Neural Networks for prediction and estimation. 
+The project involves analyzing the relationships of various cryptocurrencies with Foreign Exchange Rates and Stock Market Indices. Apart from analyzing the relationships, the objective of the project is also to estimate the trend of the cryptocurrencies based on Foreign Exchange Rates and Stock Market Indices. We will be using historical data of 6 different cryptocurrencies, 25 Stock Market Indices and 22 Foreign Exchange Rates for this project. The project will use various machine learning tools for analysis. The project also uses a fully connected deep neural network for prediction and estimation. Apart from analysis and prediction of prices of cryptocurrencies, the project also involves building its own database and giving access to the database using a prototype API. The historical data and recent predictions can be accessed through the public API. 
 
 Contents
-
 {{< table_of_contents >}}
-
 {{% /pageinfo %}}
 
-**Keywords:** cryptocurrency, stocks, foreign exchange rates
+Keywords: cryptocurrency, stocks, foreign exchange rates
+
 
 ## 1. Introduction
 
-One of the latest global medium of exchange is Cryptocurrency. The total market capitalizations of all cryptocurrencies added up to $237.1 Billion as of 2019[^1]. Cryptocurrency systems do not require a central authority, its state is maintained through distributed consensus[^2]. Therefore, determine the factors affecting the prices of cryptocurrencies becomes difficult. There are many factors affecting cryptocurrency like transaction cost, reward system, hash rate, coins circulation, forks, popularity of cryptomarket, speculations, stock markets, exchange rates, gold price, interest rate, legalization and restriction[^3]. This project involves analysis of relationships of various cryptocurrencies with Foreign Exchange Rates and Stock Market Indices.
+The latest type of investment in the finance world and one of the latest global medium of exchange is Cryptocurrency. The total market capitalizations of all cryptocurrencies added up to $237.1 Billion as of 2019[^1], making it one of the fastest growing industries in the world. Cryptocurrency systems do not require a central authority as its state is maintained through distributed consensus[^2]. Therefore, determining the factors affecting the prices of cryptocurrencies becomes extremely difficult. There are several factors affecting the prices of cryptocurrency like transaction cost, reward system, hash rate, coins circulation, forks, popularity of cryptomarket, speculations, stock markets, exchange rates, gold price, interest rate, legalization and restriction[^3]. This project involves studying and analysing the relationships of various cryptocurrencies with Foreign Exchange Rates and Stock Market Indices. Furthermore, the project also involves predicting the cryptocurrency price based on stock market indices and foreign exchange rates of the previous day. The project also involves development of a public API to access the database of the historical data and the predictions. 
 
-## 2. Background
 
-TBD
+## 2. Resources
+
+**Table 1:** Resources
+| **No.** | **Name** | **Version** | **Type** |     **Notes**     |
+| :---  |    :----:    |    :----:    |    :----:    |  ---:  |
 
 ## 3. Dataset
 
