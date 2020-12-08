@@ -143,10 +143,15 @@ The data from the MongoDB databases can be accessed using a public RESTful API. 
 URL - <https://crypto-project-api.herokuapp.com/>
 
 ***/get_data/single/market/index/date***
+
 Type - GET
+
 Sample Request - 
+
 ```<https://crypto-project-api.herokuapp.com/get_data/single/crypto/bitcoin/2020-12-05>```
+
 Sample Respose - 
+
 ```
 {
   "data":
@@ -164,10 +169,15 @@ Sample Respose -
 ```
 
 ***/get_data/multiple/market/index/start_date/end_date***
+
 Type - GET
+
 Sample Request - 
+
 ```https://crypto-project-api.herokuapp.com/get_data/multiple/crypto/bitcoin/2020-12-02/2020-12-05```
+
 Sample Respose - 
+
 ```
 {
   "data":
@@ -199,10 +209,15 @@ Sample Respose -
 ```
 
 ***/get_predictions/date***
+
 Type - GET
+
 Sample Request - 
+
 ```https://crypto-project-api.herokuapp.com/get_predictions/2020-12-05```
+
 Sample Respose - 
+
 ```
 {
   "data":
