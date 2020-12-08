@@ -85,31 +85,164 @@ Layers of neural networks have weights assigned to each feature column. These we
 
 **Figure 4.3:** No. of repetitions in top five weights
 
-## 5. Methodology
+The relationships of these two features - New Zealand Dollar and Canadian Dollar with various cryptocurrencies are, then, analyzed in Figure ## and Figure ##. It can be observed that Bitcoin has a direct relationship with these rates. Bitcoin can be observed to increase with an increase in NZD to USD rate and an increase in CAD to USD rate. For the rest of the cryptocurrencies, we can observe that they tend to rise when the NZD to USD rate and the CAD to USD rate are stable and tend to fall when the rates move towards either of the extremes. 
 
-The project uses all of its historic data to train a machine learning model for each cryptocurrency. In order to predict and estimate, all the models will use the opening rates of the selected cryptocurrency and related stock indices and foreign exchange. The models will be able to predict the closing rate for that day for the respective cryptocurrency.
+**Figure 4.4:** Relationship of NZD with Cryptocurrencies
 
-To be updated with details.
+**Figure 4.5:** Relationship of CAD with Cryptocurrencies
 
-## 6. Conclusion
+## 5. Neural Network
 
-TBD
+### 5.1 Data Preprocessing
+The first step to build a neural network for predicting cryptocurrency prices, is to clean the data. In this step, data from the “NN_data” collection is imported. Two scalers are used to normalize the data, one for feature columns and other for the target columns. For this purpose, “StandardScaler” from Scikit-learn library is used. These scalers are made to fit with the data and then saved to a file using pickle-mixin, in order to use it later for predictions. These scalers are then used to normalize the data using mean and standard deviation. This normalized data is shuffled and split into a training set and a test set. This procedure is done by using the “train_test_split()” function from the Scikit-learn library. The data is split into 94:6 ratio for training and testing respectively. The final data is split into four - X_train, X_test, y_train and y_test and is ready for training the neural network model.
 
-## Plan
 
-Nov 3 - Nov 7: Building final dataset and development of web-app to update the database daily.
 
-Nov 8 - Nov 15: Development of Machine Learning Models.
+### 5.2 Model
+For the purpose of predicting the prices of cryptocurrency based on previous day’s stock indices and forex rates, the project uses a fully connected neural network. The solution to this problem could have been perceived in different ways like making it a classification problem by predicting rise or fall in price or by making it a regression problem by either predicting the actual price or by predicting the growth. After trying all these ways of solution, it was concluded that predicting the price regression problem was the best option. 
+
+The final model comprises three layers - one input layer, one hidden layer and one output layer. The first layer uses 8 units with an input dimension of (None, 47) and uses Rectified Linear Unit (ReLU) as its activation function, and He Normal as its kernel initializer. The second layer which is a hidden layer uses 2670 hidden units with Rectified Linear Unit (ReLU) Activation function. ReLU is used because of its faster and effective training in regression models. The third layer which is the output layer has 6 units, one each for predicting 6 cryptocurrencies. The output layer uses linear activation function. 
+
+The overview of the final model can be seen in Figure ##. The predictions using the un-trained model can be seen in Figure ##, where we can observe the initialization of weights. 
+
+**Figure 5.2:** Model Overview
+**Figure 5.3:** Visualization of Initial Weights
+
+### 5.3 Training
+The neural network model is compiled before training. The model is compiled using Adam optimizer with a default learning rate of 0.001. The model uses Mean Squared Error as its loss function in order to reduce the error and give a close approximation of the cryptocurrency prices. Mean squared error is also used as a metric to visualize the performance of the model.
+
+The model is, then, trained by using X_train and y_train, as mentioned above, for 5000 epochs and by splitting the dataset for validation (20% for validation). The performance of the training of the final model for first 2500 epochs can be observed in Figure ##.
+
+**Figure 5.4:** Final Model Training
+
+This particular model was chosen because of its low validation mean squared error as compared to the performance of other models. Figure ## represents the performance of a similar fully connected model with Random Normal as its initializer instead of He Normal. Figure ## represents the performance of a Convolutional Neural Network. This model was trained with a much lower mean squared error but had a higher validation mean squared error and was therefore dropped. 
+
+**Figure 5.5:** Performance of Fully Connected with Random Normal
+
+**Figure 5.6:** Performance of Convolutional Neural Network
+
+
+### 5.4 Prediction
+After training, the model is stored in a .h5 file, which can be used to make predictions. For making predictions, the project preprocesses the data provided which needs to be of the input dimension of the model i.e. of shape (1, 47). Both the scalers which were saved earlier in the preprocessing stage are loaded again using pickle-mixin. The feature scaler is used to transform the new data to normalized data. This normalized data of the given dimension is then used to predict the prices for six cryptocurrencies. Since regression models do not show accuracy directly, it can be measured manually by rounding off the predicted values and the corresponding true values to the decimal place of one or two and then getting the difference between the two and comparing it to a preset threshold. If the values are rounded off to one decimal place and the threshold is set to 0.05 on the normalized predictions, the accuracy of the prediction is approximately 88% and if the values are rounded off to two decimal places, the accuracy is approximately 62%. The predictions of the test data and the corresponding true values for Bitcoin can be observed in Figure ##, where similarities can be observed. Prediction for a new date for the prices of all six cryptocurrencies and its true values can be observed in Figure ##. Figure ## also displays the actual result of this project as it can be observed that the predictions and the true values have similar trend with a low margin of error.
+
+**Figure 5.7:** Prediction vs. True
+
+**Figure 5.8:** Prediction vs. True for one day’s test data
+
+**Figure 5.9:** Prediction vs. True for all cryptocurrencies
+
+
+
+## 6. Deployment
+6.1 Daily Update
+The database is supposed to be updated daily using a web-app deployed on Heroku. Heroku is a cloud platform used for deploying web-apps of various languages and also uses a Git-server for repositories [^7]. This daily update web-app is triggered daily at 07.30 AM UTC i.e 2.00 AM EST. The web-app extracts the data for the previous day and updates all the collections. The new data is then preprocessed by using the saved feature normalizer. This normalized data is used to get predictions for the prices of cryptocurrencies for the day that just started. The web-app then gets the true values of the cryptocurrency prices for the previous day and updates the predictions collection using this data for future comparison. The web-app is currently deployed on Heroku and is triggered daily using Heroku Scheduler. The web-app is entirely coded in Python.
+
+6.2 REST Service
+The data from the MongoDB databases can be accessed using a public RESTful API. The API is developed using Flask-Python. The API usage is given below.
+
+URL - <https://crypto-project-api.herokuapp.com/>
+
+***/get_data/single/market/index/date***
+Type - GET
+Sample Request - 
+```<https://crypto-project-api.herokuapp.com/get_data/single/crypto/bitcoin/2020-12-05>```
+Sample Respose - 
+```
+{
+  "data":
+  [
+    {
+      "close":19154.23046875,
+      "date":"2020-12-05",
+      "high":19160.44921875,
+      "low":18590.193359375,
+      "open":18698.384765625
+    }
+  ],
+  "status":"Success"
+}
+```
+
+***/get_data/multiple/market/index/start_date/end_date***
+Type - GET
+Sample Request - 
+```https://crypto-project-api.herokuapp.com/get_data/multiple/crypto/bitcoin/2020-12-02/2020-12-05```
+Sample Respose - 
+```
+{
+  "data":
+  [
+    {
+      "close":"19201.091796875",
+      "date":"2020-12-02",
+      "high":"19308.330078125",
+      "low":"18347.71875",
+      "open":"18801.744140625"
+    },
+    {
+      "close":"19371.041015625",
+      "date":"2020-12-03",
+      "high":"19430.89453125",
+      "low":"18937.4296875",
+      "open":"18949.251953125"
+    },
+    {
+      "close":19154.23046875,
+      "date":"2020-12-05",
+      "high":19160.44921875,
+      "low":18590.193359375,
+      "open":18698.384765625
+    }
+  ],
+  "status":"Success"
+}
+```
+
+***/get_predictions/date***
+Type - GET
+Sample Request - 
+```https://crypto-project-api.herokuapp.com/get_predictions/2020-12-05```
+Sample Respose - 
+```
+{
+  "data":
+    [
+      {
+        "bitcoin":"16204.04",
+        "dash":"24.148237",
+        "date":"2020-12-05",
+        "ethereum":"503.43005",
+        "litecoin":"66.6938",
+        "monero":"120.718414",
+        "ripple":"0.55850273"
+      }
+    ],
+  "status":"Success"
+}
+```
+
+## 7. Conclusion
+
+After analyzing the historical data of Stock Market Indices, Foreign Exchange Rates and Cryptocurrency Prices, it can be concluded that there does exist a non-linear relationship between the three. It can also be concluded that cryptocurrency prices can be predicted and its trend can be estimated using Stock Indices and Forex Rates. There is still a large scope of improvement in reducing the mean squared error. The project can further improve the neural network model for better predictions. In the end, it is safe to conclude that the indicators of international politics like Stock Market Indices and Forex Exchange Rates are factors affecting the prices of cryptocurrency. 
+
+## 8. Acknowledgement
+I would like to thank Indiana University and Luddy School of Informatics, Computing and Engineering for providing me with the opportunity to work on this project. I would also like to thank Dr. Geoffrey C. Fox, Dr. Gregor von Laszewski and the Assistant Instructors of ENGR-E-534 Big Data Analytics and Applications for their constant guidance and support. 
+
 
 ## References
 
-[^1]: Szmigiera, M. "Cryptocurrency Market Value 2013-2019." Statista, 20 Jan. 2020, <https://www.statista.com/statistics/730876/cryptocurrency-maket-value>. 
+[^1]: Szmigiera, M. "Cryptocurrency Market Value 2013-2019." Statista, 20 Jan. 2020, <https://www.statista.com/statistics/730876/cryptocurrency-maket-value>.
 
-[^2]: Lansky, Jan. "Possible State Approaches to Cryptocurrencies." Journal of Systems Integration, University of Finance and Administration in Prague Czech Republic, <http://www.si-journal.org/index.php/JSI/article/view/335>. 
+[^2]: Lansky, Jan. "Possible State Approaches to Cryptocurrencies." Journal of Systems Integration, University of Finance and Administration in Prague Czech Republic, <http://www.si-journal.org/index.php/JSI/article/view/335>.
 
-[^3]: Sovbetov, Yhlas. "Factors Influencing Cryptocurrency Prices: Evidence from Bitcoin, Ethereum, Dash, Litcoin, and Monero." Journal of Economics and Financial Analysis, London School of Commerce, 26 Feb. 2018, <https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3125347>. 
+[^3]: Sovbetov, Yhlas. "Factors Influencing Cryptocurrency Prices: Evidence from Bitcoin, Ethereum, Dash, Litcoin, and Monero." Journal of Economics and Financial Analysis, London School of Commerce, 26 Feb. 2018, <https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3125347>.
 
-[^4]: "Cryptocurrency Historical Prices." Kaggle, 21 Feb. 2018, <https://www.kaggle.com/sudalairajkumar/cryptocurrencypricehistory?select=bitconnect_price.csv>. 
+[^4]: Sanders, Connor. “YahooFinancials.” PyPI, JECSand, 22 Oct. 2017, <https://pypi.org/project/yahoofinancials/>.
 
-[^5]: "Foreign Exchange Rates 2000-2019." Kaggle, 3 Mar. 2020, <https://www.kaggle.com/brunotly/foreign-exchange-rates-per-dollar-20002019>. 
+[^5]: Jaadi, Zakaria. “A Step-by-Step Explanation of Principal Component Analysis.” Built In, <https://builtin.com/data-science/step-step-explanation-principal-component-analysis>.
+
+[^6]: Violante, Andre. “An Introduction to t-SNE with Python Example.” Medium, Towards Data Science, 30 Aug. 2018, <https://towardsdatascience.com/an-introduction-to-t-sne-with-python-example-5a3a293108d1>.
+
+[^7]: “What Is Heroku.” Heroku, <https://www.heroku.com/what>.
+
 
