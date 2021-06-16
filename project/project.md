@@ -2,7 +2,7 @@
 date: 2021-03-15
 title: Analyzing the Relationship of Cryptocurrencies with Foriegn Exchange Rates and Global Stock Market Indices
 linkTitle: Cryptocurrencies
-tags: ["project", "ai", "project"]
+tags: ["project", "ai", "finance"]
 description: Analyzing the Relationship of Cryptocurrencies with Foriegn Exchange Rates and Global Stock Market Indices
 author: Krish Hemant Mhatre
 resources:
